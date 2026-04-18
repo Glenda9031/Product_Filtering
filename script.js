@@ -73,3 +73,36 @@ const products = [
     },
 ];
 
+// Get DOM elements
+const productsWrapperEl = document.getElementById('products-wrapper');
+const checkEls = document.querySelectorAll('.check');
+const filtersContainer = document.getElementById('filters-container');
+const searchInput = document.getElementById('search');
+const cartButton = document.getElementById('cart-button');
+const cartCount = document.getElementById('cart-count');
+
+// Initialize cart items count
+let cartItemCount = 0;
+
+// Initialize products
+const productsEl = [];
+
+// Loop over the products and create product elements
+products.forEach((product) => {
+    const productEl = createProductElement(product);
+    productsEl.push(productEl);
+    productsWrapperEl.appendChild(productEl);
+});
+
+// Add filter event listeners
+filtersContainer.addEventListener('change', filterProducts);
+searchInput.addEventListener('input', filterProducts);
+
+// Create a product element
+function createProductElement(product) {
+    const productEl = document.createElement('div');
+
+    productEl.className = 'item space-y-2';
+
+    
+}
